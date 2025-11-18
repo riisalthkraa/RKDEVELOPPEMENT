@@ -104,12 +104,17 @@ const animateProgressBars = () => {
 
         if (isVisible && !bar.classList.contains('animated')) {
             const targetWidth = bar.style.width;
+
+            // Désactiver la transition temporairement
+            bar.style.transition = 'none';
             bar.style.width = '0%';
 
             setTimeout(() => {
+                // Réactiver la transition
+                bar.style.transition = 'width 1s ease-out';
                 bar.style.width = targetWidth;
                 bar.classList.add('animated');
-            }, 100);
+            }, 50);
         }
     });
 };
