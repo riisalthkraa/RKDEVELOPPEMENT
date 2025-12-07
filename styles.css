@@ -179,6 +179,40 @@ body {
     box-shadow: var(--shadow-lg);
 }
 
+/* Language Switcher */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+}
+
+.lang-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.lang-link:hover {
+    color: var(--primary);
+}
+
+.lang-link.active {
+    color: var(--primary);
+    background: white;
+}
+
+.lang-separator {
+    color: var(--text-light);
+    font-weight: 300;
+}
+
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
