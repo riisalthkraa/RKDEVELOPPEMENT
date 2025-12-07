@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nRefonte professionnelle complète du site RK Développement\n\n- 🎨 Remplacement emojis par icônes FontAwesome professionnelles\n- 📸 Ajout photo personnelle (photo perso.jpg)\n- 🏢 Branding RK Développement (header + footer)\n- 📝 Mise à jour descriptions : focus BTP, Éducatif, Santé\n- 💰 Ajout section Tarifs avec grille claire (800€ - 2500€+)\n- ⚖️ Ajout pages légales complètes (CGV, Mentions Légales, Confidentialité)\n- 🎯 Descriptions portfolio améliorées pour donner envie\n- 🤖 Mise en avant IA utilisée de manière stratégique\n- ✨ Amélioration globale UX et professionnalisme\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push)",
+      "Bash(git pull:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
