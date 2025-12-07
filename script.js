@@ -179,34 +179,48 @@ if (heroStats) {
             if (entry.isIntersecting && !heroStats.classList.contains('animated')) {
                 const statNumbers = heroStats.querySelectorAll('.stat-number');
 
-                // Animate first stat (4)
+                // Animate first stat (9 Applications)
                 if (statNumbers[0]) {
                     let count = 0;
                     const interval = setInterval(() => {
                         count++;
                         statNumbers[0].textContent = count;
-                        if (count >= 4) clearInterval(interval);
-                    }, 200);
+                        if (count >= 9) clearInterval(interval);
+                    }, 150);
                 }
 
-                // Animate second stat (3)
+                // Animate second stat (450K+ lignes de code)
                 if (statNumbers[1]) {
                     let count = 0;
                     const interval = setInterval(() => {
-                        count++;
-                        statNumbers[1].textContent = count;
-                        if (count >= 3) clearInterval(interval);
-                    }, 250);
+                        count += 15;
+                        if (count >= 450) {
+                            statNumbers[1].textContent = '450K+';
+                            clearInterval(interval);
+                        } else {
+                            statNumbers[1].textContent = count + 'K+';
+                        }
+                    }, 20);
                 }
 
-                // Animate third stat (100%)
+                // Animate third stat (18 Mois)
                 if (statNumbers[2]) {
                     let count = 0;
                     const interval = setInterval(() => {
-                        count += 10;
-                        statNumbers[2].textContent = count + '%';
-                        if (count >= 100) clearInterval(interval);
+                        count++;
+                        statNumbers[2].textContent = count;
+                        if (count >= 18) clearInterval(interval);
                     }, 100);
+                }
+
+                // Animate fourth stat (25+ Technologies)
+                if (statNumbers[3]) {
+                    let count = 0;
+                    const interval = setInterval(() => {
+                        count++;
+                        statNumbers[3].textContent = count + '+';
+                        if (count >= 25) clearInterval(interval);
+                    }, 50);
                 }
 
                 heroStats.classList.add('animated');
