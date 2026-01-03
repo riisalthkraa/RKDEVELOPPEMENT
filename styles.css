@@ -236,9 +236,12 @@ body {
 
 .hero {
     padding: 10rem 0 6rem;
-    background: var(--gradient-hero);
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
     position: relative;
     overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .hero-bg {
@@ -248,20 +251,47 @@ body {
     right: 0;
     bottom: 0;
     background-image:
-        radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.08) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.15) 0%, transparent 50%);
     pointer-events: none;
 }
 
 .hero .container {
     position: relative;
-    z-index: 1;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .hero-content {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
+    max-width: 550px;
+    margin: 0;
+    text-align: left;
+    flex-shrink: 0;
+}
+
+/* Globe 3D Container */
+#globe-container {
+    position: absolute;
+    right: -5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60%;
+    height: 90%;
+    z-index: 5;
+    pointer-events: auto;
+}
+
+#globe-container canvas {
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+}
+
+#globe-container canvas:active {
+    cursor: grabbing;
 }
 
 .hero-badge {
@@ -1465,6 +1495,30 @@ body {
 
     .hero {
         padding: 8rem 0 4rem;
+        min-height: auto;
+    }
+
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    #globe-container {
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 100%;
+        opacity: 0.25;
+        z-index: 1;
+        pointer-events: none;
     }
 
     .hero-title {
@@ -1473,6 +1527,7 @@ body {
 
     .hero-stats {
         gap: 2rem;
+        justify-content: center;
     }
 
     .services-grid,
