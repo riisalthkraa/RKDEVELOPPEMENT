@@ -43,8 +43,18 @@ class GlobeScene {
         // Scene
         this.scene = new THREE.Scene();
 
+        // Get dimensions with fallback
+        let width = this.container.clientWidth || this.container.offsetWidth || window.innerWidth * 0.6;
+        let height = this.container.clientHeight || this.container.offsetHeight || window.innerHeight;
+
+        // Ensure minimum dimensions
+        if (width < 100) width = window.innerWidth * 0.6;
+        if (height < 100) height = window.innerHeight;
+
+        console.log('Globe dimensions:', width, 'x', height);
+
         // Camera
-        const aspect = this.container.clientWidth / this.container.clientHeight;
+        const aspect = width / height;
         this.camera = new THREE.PerspectiveCamera(45, aspect, 0.1, 1000);
         this.camera.position.z = 4;
 
@@ -54,7 +64,7 @@ class GlobeScene {
             alpha: true,
             powerPreference: 'high-performance'
         });
-        this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+        this.renderer.setSize(width, height);
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         this.renderer.setClearColor(0x000000, 0);
         this.container.appendChild(this.renderer.domElement);
@@ -370,10 +380,13 @@ class GlobeScene {
     }
 
     onResize() {
-        if (!this.container) return;
+        if (!this.container || !this.renderer) return;
 
-        const width = this.container.clientWidth;
-        const height = this.container.clientHeight;
+        let width = this.container.clientWidth || this.container.offsetWidth || window.innerWidth * 0.6;
+        let height = this.container.clientHeight || this.container.offsetHeight || window.innerHeight;
+
+        if (width < 100) width = window.innerWidth * 0.6;
+        if (height < 100) height = window.innerHeight;
 
         this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
@@ -522,8 +535,8 @@ class GlobeScene {
     }
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize globe with retry mechanism
+function initGlobe() {
     // Check for WebGL support
     if (!window.WebGLRenderingContext) {
         console.log('WebGL not supported');
@@ -532,13 +545,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Wait for Three.js to load
     if (typeof THREE === 'undefined') {
-        console.log('Three.js not loaded');
+        console.log('Waiting for Three.js...');
+        setTimeout(initGlobe, 100);
         return;
     }
 
     // Initialize globe
     const globeContainer = document.getElementById('globe-container');
-    if (globeContainer) {
+    if (globeContainer && !window.globeScene) {
+        console.log('Initializing Globe...');
         window.globeScene = new GlobeScene('globe-container');
     }
-});
+}
+
+// Try multiple init strategies
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGlobe);
+} else {
+    initGlobe();
+}
+
+// Fallback: also try on window load
+window.addEventListener('load', initGlobe);
