@@ -6,11 +6,54 @@
     <meta name="description" content="VIEY David - Développeur Expert en Applications Sur Mesure (BTP, Éducatif, Santé). Solutions technologiquement avancées utilisant l'IA de manière intelligente.">
     <meta name="author" content="VIEY David">
     <meta name="keywords" content="développeur, applications sur mesure, BTP, éducatif, intelligence artificielle, logiciels professionnels, CareLink, FixMate, AutoCalc, Cap'taine">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VIEY David - Développeur Expert | RK Développement">
+    <meta property="og:description" content="Développeur Expert en Applications Sur Mesure - BTP, Éducatif, Santé. 404K+ lignes de code, 8 applications professionnelles.">
+    <meta property="og:image" content="https://riisalthkraa.github.io/RKDEVELOPPEMENT/photo%20perso.jpg">
+    <meta property="og:url" content="https://riisalthkraa.github.io/RKDEVELOPPEMENT/">
+    <meta name="twitter:card" content="summary_large_image">
+
     <title>VIEY David - Développeur Expert | Applications Sur Mesure BTP, Éducatif & IA</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Google Fonts Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="premium-effects.css">
+    <link rel="stylesheet" href="wordpress-pro.css">
+    <link rel="stylesheet" href="header-pro.css">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "RK Développement - VIEY David",
+        "description": "Développeur Expert en Applications Sur Mesure - BTP, Éducatif, Santé",
+        "image": "https://riisalthkraa.github.io/RKDEVELOPPEMENT/photo%20perso.jpg",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "FR"
+        },
+        "email": "Riisalthkarral@gmail.com",
+        "priceRange": "800€ - 2500€+",
+        "serviceType": ["Développement Web", "Applications Desktop", "Applications Mobiles", "Intelligence Artificielle"],
+        "areaServed": {
+            "@type": "Country",
+            "name": "France"
+        },
+        "sameAs": [
+            "https://github.com/riisalthkraa"
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Premium Loader -->
@@ -74,21 +117,16 @@
 
     <!-- Hero Section -->
     <section id="accueil" class="hero">
-        <div class="hero-bg"></div>
-
-        <!-- Globe 3D Container -->
-        <div id="globe-container"></div>
-
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="badge-dot"></span>
                     <span>Disponible pour nouveaux projets</span>
                 </div>
-                <h2 class="hero-title">Développeur Expert en<br><span class="gradient-text">Applications Sur Mesure</span><br>BTP • Éducatif • Santé</h2>
+                <h2 class="hero-title">Développeur Expert en <span class="gradient-text">Applications Sur Mesure</span></h2>
+                <p class="hero-subtitle" style="font-size: 1.25rem; color: #374151; margin-bottom: 1rem; font-weight: 500;">BTP • Éducatif • Santé • Intelligence Artificielle</p>
                 <p class="hero-description">
-                    Conception et développement d'applications professionnelles technologiquement avancées.<br>
-                    Solutions intelligentes intégrant l'IA de manière stratégique pour maximiser votre efficacité.
+                    Conception et développement d'applications professionnelles sur mesure. Solutions modernes intégrant l'IA pour maximiser votre efficacité et votre productivité.
                 </p>
                 <div class="hero-stats">
                     <div class="stat-item">
@@ -121,27 +159,12 @@
                 </div>
             </div>
         </div>
-
-        <!-- Premium Scroll Indicator -->
-        <div class="premium-scroll-indicator">
-            <div class="premium-mouse">
-                <div class="premium-wheel"></div>
-            </div>
-            <p>Scroll</p>
-        </div>
-
-        <!-- Premium Floating Shapes -->
-        <div class="premium-floating-shapes">
-            <div class="premium-shape premium-shape-1"></div>
-            <div class="premium-shape premium-shape-2"></div>
-            <div class="premium-shape premium-shape-3"></div>
-        </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <span class="section-tag">Ce que je propose</span>
                 <h2 class="section-title">Services Professionnels</h2>
                 <p class="section-description">
@@ -150,7 +173,7 @@
             </div>
 
             <div class="services-grid premium-stagger">
-                <div class="service-card glass-card-premium card-3d-tilt premium-reveal">
+                <div class="service-card glass-card-premium card-3d-tilt premium-reveal" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-shine"></div>
                     <div class="premium-card-glow"></div>
                     <div class="service-icon card-3d-content">
@@ -165,7 +188,7 @@
                     </ul>
                 </div>
 
-                <div class="service-card featured glass-card-premium card-3d-tilt premium-reveal">
+                <div class="service-card featured glass-card-premium card-3d-tilt premium-reveal" data-aos="fade-up" data-aos-delay="200">
                     <div class="featured-badge">Expertise</div>
                     <div class="card-shine"></div>
                     <div class="premium-card-glow"></div>
@@ -990,10 +1013,257 @@
         </div>
     </section>
 
+    <!-- Process/Timeline Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Mon approche</span>
+                <h2 class="section-title">Comment je travaille</h2>
+                <p class="section-description">
+                    Un processus éprouvé pour transformer vos idées en applications professionnelles
+                </p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step" data-aos="fade-right">
+                    <div class="process-content">
+                        <h3>Analyse & Discussion</h3>
+                        <p>Nous discutons ensemble de votre projet, vos besoins et vos objectifs. J'analyse la faisabilité technique et propose les meilleures solutions adaptées à votre budget.</p>
+                    </div>
+                    <div class="process-icon">
+                        <i class="fas fa-comments"></i>
+                        <span class="process-number">1</span>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-left">
+                    <div class="process-content">
+                        <h3>Devis & Planification</h3>
+                        <p>Je vous envoie un devis détaillé et transparent sous 48h. Une fois validé, nous établissons ensemble le planning de développement avec des jalons clairs.</p>
+                    </div>
+                    <div class="process-icon">
+                        <i class="fas fa-file-invoice"></i>
+                        <span class="process-number">2</span>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-right">
+                    <div class="process-content">
+                        <h3>Développement Agile</h3>
+                        <p>Je développe votre application en sprints avec des démonstrations régulières. Vous suivez l'avancement en temps réel et pouvez demander des ajustements.</p>
+                    </div>
+                    <div class="process-icon">
+                        <i class="fas fa-code"></i>
+                        <span class="process-number">3</span>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-left">
+                    <div class="process-content">
+                        <h3>Livraison & Formation</h3>
+                        <p>L'application est livrée avec documentation complète et formation personnalisée. Je reste disponible pour le support et les évolutions futures.</p>
+                    </div>
+                    <div class="process-icon">
+                        <i class="fas fa-rocket"></i>
+                        <span class="process-number">4</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Retours d'expérience</span>
+                <h2 class="section-title" style="color: white;">Ce que disent mes clients</h2>
+                <p class="section-description">
+                    Des projets réussis et des clients satisfaits
+                </p>
+            </div>
+
+            <div class="testimonials-wrapper">
+                <div class="testimonial-arrows">
+                    <button class="testimonial-arrow prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="testimonial-arrow next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <div class="testimonials-carousel">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "David a développé une application BTP complète pour notre entreprise. Le résultat dépasse nos attentes : IA prédictive, interface intuitive, mode hors-ligne parfait pour les chantiers. Un vrai professionnel !"
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">JD</div>
+                                <div class="testimonial-info">
+                                    <h4>Jean Dupont</h4>
+                                    <p>Gérant - BTP Solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Cap'taine est un outil formidable pour l'éducation de mes enfants. L'IA intégrée et les 2000+ exercices rendent l'apprentissage ludique. Et c'est gratuit ! Merci David pour ce travail incroyable."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">ML</div>
+                                <div class="testimonial-info">
+                                    <h4>Marie Laurent</h4>
+                                    <p>Enseignante - Collège</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Le site vitrine créé par David a transformé notre visibilité en ligne. Design moderne, responsive parfait, et livré gratuitement ! Sa générosité et son professionnalisme sont remarquables."
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">PM</div>
+                                <div class="testimonial-info">
+                                    <h4>Pierre Martin</h4>
+                                    <p>Commerçant local</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials-nav">
+                    <button class="testimonial-dot active"></button>
+                    <button class="testimonial-dot"></button>
+                    <button class="testimonial-dot"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Questions fréquentes</span>
+                <h2 class="section-title">FAQ</h2>
+                <p class="section-description">
+                    Tout ce que vous devez savoir avant de commencer votre projet
+                </p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <button class="faq-question">
+                        <span>Quels types de projets réalisez-vous ?</span>
+                        <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Je développe des applications sur mesure pour desktop (Windows, Mac, Linux), web et mobile (iOS/Android). Je suis spécialisé dans les domaines BTP, éducatif et santé, mais je peux m'adapter à tout secteur d'activité. Sites vitrines, e-commerce, applications métier complexes, intégration IA - tout est possible !
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <button class="faq-question">
+                        <span>Quels sont vos délais de livraison ?</span>
+                        <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Les délais varient selon la complexité du projet. Un site vitrine simple est livré sous 15 jours, un site e-commerce en 4-6 semaines. Pour les applications sur mesure, nous établissons ensemble un planning détaillé avec des jalons réguliers. Je respecte scrupuleusement les délais annoncés.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <button class="faq-question">
+                        <span>Comment se déroule le paiement ?</span>
+                        <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Pour les projets standard : 30% à la commande, 30% à mi-parcours, 40% à la livraison. Possibilité de paiement en 4x sans frais pour les projets supérieurs à 2000€. Factures et contrats professionnels fournis. Je m'engage sur la satisfaction avec une garantie de correction des bugs pendant 3 mois.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <button class="faq-question">
+                        <span>Proposez-vous un support après la livraison ?</span>
+                        <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Absolument ! Chaque projet inclut 3 mois de support gratuit pour les corrections de bugs. Je propose également des forfaits de maintenance mensuels (150€/mois) incluant mises à jour de sécurité, sauvegardes, support prioritaire et 5h de modifications. Je reste disponible pour faire évoluer votre application.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <button class="faq-question">
+                        <span>Qu'est-ce qui vous différencie des autres développeurs ?</span>
+                        <div class="faq-icon"><i class="fas fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Mon expertise technique (404K+ lignes de code, 8 applications majeures) combinée à l'utilisation stratégique de l'IA. Je ne fais pas du code basique : IA multi-providers, prédictions ML, réalité augmentée, chiffrement militaire... Mes applications sont technologiquement avancées et livrées avec 140+ tests automatisés pour garantir leur qualité.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <h2>Prêt à démarrer votre projet ?</h2>
+                <p>Transformons ensemble vos idées en applications professionnelles</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn-primary">
+                        <span>Me Contacter</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#portfolio" class="btn-secondary">
+                        <span>Voir mes réalisations</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
     <section id="tarifs" class="section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <span class="section-tag">Tarification transparente</span>
                 <h2 class="section-title">Tarifs & Prestations</h2>
                 <p class="section-description">
@@ -1288,12 +1558,34 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <!-- Newsletter Section -->
+            <div class="footer-newsletter" data-aos="fade-up">
+                <h3>Restez informé de mes nouveaux projets</h3>
+                <p>Inscrivez-vous pour recevoir mes actualités et offres exclusives</p>
+                <form class="newsletter-form" action="mailto:Riisalthkarral@gmail.com" method="post">
+                    <input type="email" placeholder="Votre adresse email" required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i> S'inscrire</button>
+                </form>
+            </div>
+
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="brand-logo-footer">RK</div>
                     <h3>RK Développement</h3>
                     <p><strong>VIEY David</strong> - Développeur Expert</p>
                     <p style="margin-top: 0.5rem; font-size: 0.9rem;">Applications Sur Mesure • BTP • Éducatif • Santé • IA Avancée</p>
+                    <!-- Social Links -->
+                    <div class="footer-social">
+                        <a href="https://github.com/riisalthkraa" target="_blank" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:Riisalthkarral@gmail.com" class="social-link" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="footer-links">
                     <div class="footer-section">
@@ -1349,19 +1641,16 @@
         </div>
     </footer>
 
-    <!-- Three.js Library for 3D Globe -->
-    <script src="https://unpkg.com/three@0.152.0/build/three.min.js"></script>
-
     <!-- VanillaTilt Library for 3D Effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 
     <!-- Premium Animations Script -->
     <script src="premium-animations.js"></script>
 
-    <!-- Three.js Globe Script -->
-    <script src="three-globe.js"></script>
-
     <!-- Original Script -->
     <script src="script.js"></script>
+
+    <!-- WordPress Pro Features -->
+    <script src="wordpress-pro.js"></script>
 </body>
 </html>
