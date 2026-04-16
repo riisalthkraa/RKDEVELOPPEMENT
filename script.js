@@ -22,20 +22,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
 
         if (target) {
-            // Close mobile menu if open
-            if (navMenu) {
-                navMenu.classList.remove('active');
-            }
-            if (mobileMenuToggle) {
-                mobileMenuToggle.classList.remove('active');
-            }
+            if (navMenu) navMenu.classList.remove('active');
+            if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
 
-            // Smooth scroll to target
             const navbarHeight = document.querySelector('.navbar').offsetHeight;
-            const targetPosition = target.offsetTop - navbarHeight;
-
             window.scrollTo({
-                top: targetPosition,
+                top: target.offsetTop - navbarHeight,
                 behavior: 'smooth'
             });
         }
@@ -47,19 +39,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ===================================
 
 const navbar = document.querySelector('.navbar');
-let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    // Add shadow when scrolled
-    if (currentScroll > 50) {
-        navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+    if (window.pageYOffset > 50) {
+        navbar.classList.add('scrolled');
     } else {
-        navbar.style.boxShadow = 'none';
+        navbar.classList.remove('scrolled');
     }
-
-    lastScroll = currentScroll;
 });
 
 // ===================================
@@ -92,44 +78,8 @@ window.addEventListener('scroll', updateActiveLink);
 window.addEventListener('load', updateActiveLink);
 
 // ===================================
-// ANIMATE PROGRESS BARS ON SCROLL
+// INTERSECTION OBSERVER FOR FADE-IN
 // ===================================
-
-const progressBars = document.querySelectorAll('.progress-fill');
-
-const animateProgressBars = () => {
-    progressBars.forEach(bar => {
-        const rect = bar.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
-
-        if (isVisible && !bar.classList.contains('animated')) {
-            const targetWidth = bar.style.width;
-
-            // Désactiver la transition temporairement
-            bar.style.transition = 'none';
-            bar.style.width = '0%';
-
-            setTimeout(() => {
-                // Réactiver la transition
-                bar.style.transition = 'width 1s ease-out';
-                bar.style.width = targetWidth;
-                bar.classList.add('animated');
-            }, 50);
-        }
-    });
-};
-
-window.addEventListener('scroll', animateProgressBars);
-window.addEventListener('load', animateProgressBars);
-
-// ===================================
-// INTERSECTION OBSERVER FOR FADE-IN ANIMATIONS
-// ===================================
-
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -138,40 +88,19 @@ const observer = new IntersectionObserver((entries) => {
             entry.target.style.transform = 'translateY(0)';
         }
     });
-}, observerOptions);
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-// Apply fade-in to cards
-const cardsToAnimate = document.querySelectorAll('.service-card, .portfolio-card, .tech-category');
-cardsToAnimate.forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-    observer.observe(card);
+document.querySelectorAll('.service-card, .portfolio-card, .tech-category, .stat-block, .pricing-card').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = `opacity 0.6s ease ${i * 0.08}s, transform 0.6s ease ${i * 0.08}s`;
+    observer.observe(el);
 });
 
 // ===================================
-// COUNTER ANIMATION FOR HERO STATS
+// HERO STATS COUNTER ANIMATION
 // ===================================
 
-const animateCounter = (element, target, suffix = '') => {
-    const duration = 2000;
-    const increment = target / (duration / 16);
-    let current = 0;
-
-    const updateCounter = () => {
-        current += increment;
-        if (current < target) {
-            element.textContent = Math.floor(current) + suffix;
-            requestAnimationFrame(updateCounter);
-        } else {
-            element.textContent = target + suffix;
-        }
-    };
-
-    updateCounter();
-};
-
-// Trigger counter animation when hero is visible
 const heroStats = document.querySelector('.hero-stats');
 if (heroStats) {
     const heroObserver = new IntersectionObserver((entries) => {
@@ -179,41 +108,41 @@ if (heroStats) {
             if (entry.isIntersecting && !heroStats.classList.contains('animated')) {
                 const statNumbers = heroStats.querySelectorAll('.stat-number');
 
-                // Animate first stat (9 Applications)
+                // 4 Sites Clients
                 if (statNumbers[0]) {
                     let count = 0;
                     const interval = setInterval(() => {
                         count++;
                         statNumbers[0].textContent = count;
-                        if (count >= 9) clearInterval(interval);
+                        if (count >= 4) clearInterval(interval);
+                    }, 200);
+                }
+
+                // 8+ Applications
+                if (statNumbers[1]) {
+                    let count = 0;
+                    const interval = setInterval(() => {
+                        count++;
+                        statNumbers[1].textContent = count + '+';
+                        if (count >= 8) clearInterval(interval);
                     }, 150);
                 }
 
-                // Animate second stat (450K+ lignes de code)
-                if (statNumbers[1]) {
+                // 450K+ LOC
+                if (statNumbers[2]) {
                     let count = 0;
                     const interval = setInterval(() => {
                         count += 15;
                         if (count >= 450) {
-                            statNumbers[1].textContent = '450K+';
+                            statNumbers[2].textContent = '450K+';
                             clearInterval(interval);
                         } else {
-                            statNumbers[1].textContent = count + 'K+';
+                            statNumbers[2].textContent = count + 'K+';
                         }
                     }, 20);
                 }
 
-                // Animate third stat (18 Mois)
-                if (statNumbers[2]) {
-                    let count = 0;
-                    const interval = setInterval(() => {
-                        count++;
-                        statNumbers[2].textContent = count;
-                        if (count >= 18) clearInterval(interval);
-                    }, 100);
-                }
-
-                // Animate fourth stat (25+ Technologies)
+                // 25+ Technologies
                 if (statNumbers[3]) {
                     let count = 0;
                     const interval = setInterval(() => {
@@ -232,9 +161,85 @@ if (heroStats) {
 }
 
 // ===================================
-// CONSOLE MESSAGE
+// FAQ ACCORDION
 // ===================================
 
-console.log('%c👨‍💻 VIEY David - Développeur Expert', 'font-size: 16px; font-weight: bold; color: #2563eb;');
-console.log('%cApplications Médicales & Logiciels Sur Mesure', 'font-size: 12px; color: #475569;');
-console.log('%cContact: Riisalthkarral@gmail.com', 'font-size: 12px; color: #10b981;');
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isActive = item.classList.contains('active');
+
+        document.querySelectorAll('.faq-item.active').forEach(el => el.classList.remove('active'));
+
+        if (!isActive) item.classList.add('active');
+    });
+});
+
+// ===================================
+// TESTIMONIALS CAROUSEL
+// ===================================
+
+const carousel = document.querySelector('.testimonials-carousel');
+const dots = document.querySelectorAll('.testimonial-dot');
+const prevBtn = document.querySelector('.testimonial-arrow.prev');
+const nextBtn = document.querySelector('.testimonial-arrow.next');
+let currentSlide = 0;
+
+function updateCarousel() {
+    if (!carousel) return;
+    const cards = carousel.querySelectorAll('.testimonial-card');
+    const total = cards.length;
+
+    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+}
+
+if (prevBtn) prevBtn.addEventListener('click', () => {
+    const total = carousel.querySelectorAll('.testimonial-card').length;
+    currentSlide = (currentSlide - 1 + total) % total;
+    updateCarousel();
+});
+
+if (nextBtn) nextBtn.addEventListener('click', () => {
+    const total = carousel.querySelectorAll('.testimonial-card').length;
+    currentSlide = (currentSlide + 1) % total;
+    updateCarousel();
+});
+
+dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+        currentSlide = i;
+        updateCarousel();
+    });
+});
+
+// Auto-advance every 6s
+setInterval(() => {
+    if (!carousel) return;
+    const total = carousel.querySelectorAll('.testimonial-card').length;
+    currentSlide = (currentSlide + 1) % total;
+    updateCarousel();
+}, 6000);
+
+// ===================================
+// LOADER HIDE
+// ===================================
+
+window.addEventListener('load', () => {
+    const loader = document.querySelector('.premium-loader-wrapper');
+    if (loader) {
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            loader.style.pointerEvents = 'none';
+            setTimeout(() => loader.remove(), 400);
+        }, 800);
+    }
+});
+
+// ===================================
+// CONSOLE
+// ===================================
+
+console.log('%c<RK/> Développement', 'font-size: 16px; font-weight: bold; color: #00ff88;');
+console.log('%cVIEY David - Développeur Expert', 'font-size: 12px; color: #8a93a6;');
+console.log('%cContact: Riisalthkarral@gmail.com', 'font-size: 12px; color: #00ff88;');
