@@ -6,6 +6,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
+/* font-display: swap appliqué via le paramètre display=swap ci-dessus */
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -687,12 +689,14 @@ img { max-width: 100%; height: auto; display: block; }
     position: relative;
     height: 200px;
     overflow: hidden;
+    background: var(--bg-3);
 }
 
 .portfolio-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center;
     transition: var(--transition-slow);
 }
 
@@ -1450,6 +1454,31 @@ img { max-width: 100%; height: auto; display: block; }
 .pricing-note i { color: var(--accent); margin-top: 0.15rem; }
 .pricing-note p { margin: 0; }
 .pricing-note strong { color: var(--text); }
+
+/* ===== SEO PRICING DISCOUNT ===== */
+.price-compare {
+    text-align: center;
+    margin-bottom: 0.25rem;
+}
+
+.price-old {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    text-decoration: line-through;
+}
+
+.price-save {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--bg);
+    background: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    letter-spacing: 0.5px;
+}
 
 /* ===== CONTACT ===== */
 .contact-content {

@@ -1,0 +1,23 @@
+# robots.txt — rk-developpement.fr
+# RK Développement — 2026
+
+User-agent: *
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+
+# Bots IA — autorisés
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Sitemap
+Sitemap: https://rk-developpement.fr/sitemap.xml
